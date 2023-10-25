@@ -3,7 +3,7 @@ import math
 
 two_operands = ['+', '-', '*', '**', '/']
 one_operand = ['ln', '^2', 'sin', 'cos', 'tan', 'lg']
-# type: ignore
+
 def calc_two(num_1: float, num_2: float, command: str) -> tp.Union[float, str]:
     if command == "+":
         result = num_1 + num_2
@@ -21,7 +21,7 @@ def calc_two(num_1: float, num_2: float, command: str) -> tp.Union[float, str]:
 
 
 def calc_one(num_1: float, command: str) -> tp.Union[float, str]:
-    # type: ignore
+   
     if command == "ln":
         while num_1<=0:
             num_1 = float(input("Аргумент логарифма меньше или равен нулю. Введите аргумент больше нуля > "))
@@ -41,7 +41,7 @@ def calc_one(num_1: float, command: str) -> tp.Union[float, str]:
 
 
 if __name__ == "__main__":
-    while True:  # программа выполняется до ввода 0 вместо команды
+    while True:  
         command = input("Введите операцию > ")
         if command.isdigit() and int(command) == 0:
             break
@@ -49,11 +49,11 @@ if __name__ == "__main__":
             while True:
                 try:
                     num_1 = float(input("Первое число > "))
-                    break  # Break out of the num_1 input loop if no ValueError is raised
+                    break  
                 except ValueError:
                     print("Ошибка: Введите число без символов и букв")
 
-            while True:  # Start a new loop for num_2 input
+            while True:  
                 try:
                     num_2 = float(input("Второе число > "))
                     break
@@ -62,8 +62,7 @@ if __name__ == "__main__":
                 except ZeroDivisionError:
                     print("Ошибка. Деление на ноль")
             result = calc_two(num_1, num_2, command)
-            print(result)  # Break out of the num_2 input loop if no ValueError is raised
-
+            print(result)  
         elif command in one_operand:
             try:
                 num_1 = float(input("Первое число > "))
@@ -74,8 +73,4 @@ if __name__ == "__main__":
         else:
             print(f"Неизвестный оператор: {command!r}.")
             print("Принимаемые операторы:", (two_operands + one_operand))
-
-# while result <= NUM_1 ** 2:
-# result = calc(NUM_1+1, NUM_2+1, command)
-# print(result)
 
