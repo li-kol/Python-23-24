@@ -1,5 +1,5 @@
-import typing as tp
 import math
+import typing as tp
 
 two_operands = ['+', '-', '*', '**', '/']
 one_operand = ['ln', '^2', 'sin', 'cos', 'tan', 'lg']
