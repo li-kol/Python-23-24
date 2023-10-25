@@ -4,7 +4,6 @@ import typing as tp
 two_operands = ["+", "-", "*", "**", "/"]
 one_operand = ["ln", "^2", "sin", "cos", "tan", "lg"]
 
-
 def calc_two(num_1: float, num_2: float, command: str) -> tp.Union[float, str]:
     if command == "+":
         result = num_1 + num_2
@@ -19,7 +18,7 @@ def calc_two(num_1: float, num_2: float, command: str) -> tp.Union[float, str]:
         return num_1 / num_2
     if command == "**":
         return num_1**num_2
-
+    return 0
 
 def calc_one(num_1: float, command: str) -> tp.Union[float, str]:
     if command == "ln":
@@ -38,7 +37,7 @@ def calc_one(num_1: float, command: str) -> tp.Union[float, str]:
         return math.cos(num_1)
     if command == "tan":
         return math.tan(num_1)
-
+    return 0
 
 if __name__ == "__main__":
     while True:
