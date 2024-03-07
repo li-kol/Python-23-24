@@ -4,6 +4,8 @@ import typing as tp
 two_operands = ["+", "-", "*", "**", "/"]
 one_operand = ["ln", "^2", "sin", "cos", "tan", "lg"]
 
+
+# type: ignore
 def calc_two(num_1: float, num_2: float, command: str) -> tp.Union[float, str]:
     if command == "+":
         result = num_1 + num_2
@@ -20,7 +22,9 @@ def calc_two(num_1: float, num_2: float, command: str) -> tp.Union[float, str]:
         return num_1**num_2
     return 0
 
+
 def calc_one(num_1: float, command: str) -> tp.Union[float, str]:
+    # type: ignore
     if command == "ln":
         while num_1 <= 0:
             num_1 = float(input("Аргумент логарифма меньше или равен нулю. Введите аргумент больше нуля > "))
@@ -39,8 +43,9 @@ def calc_one(num_1: float, command: str) -> tp.Union[float, str]:
         return math.tan(num_1)
     return 0
 
+
 if __name__ == "__main__":
-    while True:
+    while True:  # программа выполняется до ввода 0 вместо команды
         command = input("Введите операцию > ")
         if command.isdigit() and int(command) == 0:
             break
@@ -48,11 +53,11 @@ if __name__ == "__main__":
             while True:
                 try:
                     num_1 = float(input("Первое число > "))
-                    break
+                    break  # Break out of the num_1 input loop if no ValueError is raised
                 except ValueError:
                     print("Ошибка: Введите число без символов и букв")
 
-            while True:
+            while True:  # Start a new loop for num_2 input
                 try:
                     num_2 = float(input("Второе число > "))
                     break
@@ -61,7 +66,8 @@ if __name__ == "__main__":
                 except ZeroDivisionError:
                     print("Ошибка. Деление на ноль")
             result = calc_two(num_1, num_2, command)
-            print(result)
+            print(result)  # Break out of the num_2 input loop if no ValueError is raised
+
         elif command in one_operand:
             try:
                 num_1 = float(input("Первое число > "))
