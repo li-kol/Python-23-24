@@ -96,7 +96,8 @@ def decrypt(pk: tp.Tuple[int, int], ciphertext: tp.List[int]) -> str:
     Decrypt a ciphertext message using RSA.
     """
     key, n = pk
-    plain = [chr((char**key) % n) for char in ciphertext]
+
+    plain = [chr((char ** key) % n) for char in ciphertext]
     return "".join(plain)
 
 
