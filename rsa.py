@@ -45,12 +45,13 @@ def multiplicative_inverse(e: int, phi: int) -> int:
     >>> multiplicative_inverse(7, 40)
     23
     """
+
     def egcd(a, b):
         if a == 0:
             return b, 0, 1
-        else:
-            g, y, x = egcd(b % a, a)
-            return g, x - (b // a) * y, y
+
+        g, y, x = egcd(b % a, a)
+        return g, x - (b // a) * y, y
 
     g, x, _ = egcd(e, phi)
     if g != 1:
@@ -95,7 +96,7 @@ def decrypt(pk: tp.Tuple[int, int], ciphertext: tp.List[int]) -> str:
     Decrypt a ciphertext message using RSA.
     """
     key, n = pk
-    plain = [chr((char ** key) % n) for char in ciphertext]
+    plain = [chr((char**key) % n) for char in ciphertext]
     return "".join(plain)
 
 
