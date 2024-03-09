@@ -58,5 +58,4 @@ def decrypt_vigenere(ciphertext: str, keyword: str) -> str:
             keyword_index += 1
         else:
             ciphertext += char
-
     return ciphertext
